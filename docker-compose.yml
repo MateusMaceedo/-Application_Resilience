@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  wiremock:
+      image: rodolpheche/wiremock
+      ports:
+        - "8082:8080"
+      volumes:
+        - ./__files:/home/wiremock/__files
+        - ./mappings:/home/wiremock/mappings
+  redis:
+    image: redis
+    command: redis-server
+    ports:
+      - "6379:6379"
